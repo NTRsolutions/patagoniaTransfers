@@ -6,33 +6,44 @@
     android:weightSum="1">
 
 
+
+
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_height="64dp"
+        android:layout_margin="2dp"
         android:baselineAligned="false"
+        android:background="@color/colorPrimary"
         android:orientation="horizontal">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="5">
+            android:layout_weight="1">
 
 
 
-
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_face_client2"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:src="@drawable/noimg"
-                app:civ_border_color="@color/colorPrimaryDark"
-                app:civ_border_width="2dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
+            <ProgressBar
+                android:id="@+id/progressBarTravel"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:theme="@style/CircularProgress"
+                android:layout_marginTop="7dp"/>
+
+
+
+
+
+
 
 
         </RelativeLayout>
@@ -43,20 +54,59 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/txtStatus"
+                android:id="@+id/txtStatus2"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:visibility="invisible"
+                android:layout_marginRight="20dp"
                 android:layout_alignParentBottom="true"
-                android:background="@color/cardview_dark_background"
-                android:paddingTop="10dp"
                 android:textAlignment="center"
-                android:textColor="@color/cast_expanded_controller_text_color"
+                android:textColor="@color/whithe"
                 android:textSize="20sp"
+                android:text=""
                 android:textStyle="bold" />
+
+            <com.kofigyan.stateprogressbar.StateProgressBar
+                android:id="@+id/your_state_progress_bar_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:spb_currentStateNumber="one"
+                android:layout_marginTop="0dp"
+                app:spb_maxStateNumber="three"
+                app:spb_stateBackgroundColor="#fff"
+                app:spb_stateForegroundColor="@color/GRREN_CLEAR"
+                app:spb_stateNumberBackgroundColor="#808080"
+                app:spb_stateNumberForegroundColor="#222"
+                app:spb_currentStateDescriptionColor="@color/GRREN_CLEAR"
+                app:spb_stateDescriptionColor="#808080"
+                app:spb_animateToCurrentProgressState="true"
+                app:spb_stateTextSize="10sp"
+                app:spb_stateDescriptionSize="14sp"
+                app:spb_checkStateCompleted="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:id="@+id/txtStatus"
+                android:layout_marginTop="38dp"
+                android:textAlignment="center"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text=""
+                android:textStyle="bold"
+                android:textColor="@color/whithe"
+                android:textSize="18dp" />
+
+
+
 
         </RelativeLayout>
 
     </LinearLayout>
+
+            <!--***-->
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -173,11 +223,11 @@
 
 
                     <TextView
-                        android:text="N/a"
+                        android:text="No se cargo informacion"
                         android:id="@+id/txt_client_info"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:textSize="40dp"
+                        android:textSize="20dp"
                         android:textColor="@color/colorPrimary"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true" />
@@ -190,11 +240,55 @@
 
     </LinearLayout>
 
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="0dp"
+            android:tint="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_access_time_black_40dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/txt_date_info"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingTop="5dp"
+            android:text="No se cargo informacion"
+            android:textColor="@color/place_autocomplete_prediction_secondary_text"
+            android:textSize="17dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+</LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -226,9 +320,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:paddingTop="5dp"
-                android:text="N/A"
+                android:text="No se cargo informacion"
                 android:textColor="@color/place_autocomplete_prediction_secondary_text"
-                android:textSize="17dp" />
+                android:textSize="15dp" />
 
         </RelativeLayout>
     </LinearLayout>
@@ -236,7 +330,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -268,9 +363,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:paddingTop="5dp"
-                android:text="N/A"
+                android:text="No se cargo informacion"
                 android:textColor="@color/place_autocomplete_prediction_secondary_text"
-                android:textSize="17dp" />
+                android:textSize="15dp" />
 
         </RelativeLayout>
     </LinearLayout>
@@ -278,7 +373,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -310,7 +406,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:paddingTop="12dp"
-                android:text="N/A"
+                android:text="No se cargo informacion"
                 android:textColor="@color/place_autocomplete_prediction_secondary_text"
                 android:textSize="22dp" />
 
@@ -320,7 +416,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -352,14 +449,31 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:paddingTop="12dp"
-                android:text="N/A"
+                android:text="No se cargo informacion"
                 android:textColor="@color/place_autocomplete_prediction_secondary_text"
                 android:textSize="15dp" />
 
         </RelativeLayout>
     </LinearLayout>
 
+            <Button
+                android:id="@+id/car_notifications_cancel_client2"
+                android:layout_width="match_parent"
+                android:visibility="invisible"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="80dp"
+                android:background="@drawable/buton_round_red"
+                android:text="CANCELAR Viaje"
+                android:textColor="@color/blanco"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
 
+                />
+<!--****-->
+        </LinearLayout>
 
 
 
