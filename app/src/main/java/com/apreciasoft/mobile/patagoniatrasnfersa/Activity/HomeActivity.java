@@ -26,7 +26,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
-
 import com.apreciasoft.mobile.patagoniatrasnfersa.Entity.DestinationEntity;
 import com.apreciasoft.mobile.patagoniatrasnfersa.Entity.OriginEntity;
 import com.apreciasoft.mobile.patagoniatrasnfersa.Entity.TravelBodyEntity;
@@ -57,7 +56,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.apreciasoft.mobile.patagoniatrasnfersa.Dialog.TravelDialog;
 import com.apreciasoft.mobile.patagoniatrasnfersa.Entity.BeneficioEntity;
 import com.apreciasoft.mobile.patagoniatrasnfersa.Entity.InfoTravelEntity;
@@ -94,11 +92,8 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -120,9 +115,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import javax.net.ssl.HttpsURLConnection;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.fabric.sdk.android.Fabric;
 import retrofit2.Call;
