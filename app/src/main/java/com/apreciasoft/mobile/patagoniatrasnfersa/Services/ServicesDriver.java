@@ -15,7 +15,6 @@ import com.apreciasoft.mobile.patagoniatrasnfersa.Entity.resp;
 import com.apreciasoft.mobile.patagoniatrasnfersa.Entity.responseFilterVehicle;
 
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

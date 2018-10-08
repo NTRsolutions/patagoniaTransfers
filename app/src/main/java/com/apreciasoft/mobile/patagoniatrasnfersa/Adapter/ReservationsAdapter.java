@@ -119,7 +119,7 @@ public class ReservationsAdapter
 
         if(mDataset.get(position).getNameOrigin() != null) {
             if (mDataset.get(position).getNameOrigin().length() > 0) {
-        holder.mtv_blah.setText(mDataset.get(position).getNameOrigin());
+                holder.mtv_blah.setText(mDataset.get(position).getNameOrigin());
             }
         }
 

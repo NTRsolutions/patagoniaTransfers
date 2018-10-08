@@ -71,13 +71,17 @@ public class TravelDialog extends DialogFragment {
         final TextView txt_piso_dialog = (TextView) rootView.findViewById(R.id.txt_piso_dialog);
         final TextView txt_dpto_dialog = (TextView) rootView.findViewById(R.id.txt_dpto_dialog);
 
+        final TextView txt_issleep_dialog = (TextView) rootView.findViewById(R.id.txt_issleep_dialog);
+        final TextView txt_isretunr_dialog = (TextView) rootView.findViewById(R.id.txt_isretunr_dialog);
+
+
         final TextView txt_observation = (TextView) rootView.findViewById(R.id.txt_observation);//is multi destination
 
 
         int param49 = Integer.parseInt(gloval.getGv_param().get(48).getValue());// SE PUEDE VER TELEFONO DE PASAJEROS
 
         if(currentTravel.getPhoneNumber() !=null && param49 == 1) {
-        telefono.setText(currentTravel.getPhoneNumber());
+            telefono.setText(currentTravel.getPhoneNumber());
         }
 
         title1.setText(currentTravel.getCodTravel());
@@ -107,6 +111,19 @@ public class TravelDialog extends DialogFragment {
 
         txt_piso_dialog.setText(currentTravel.getFLOOR());
         txt_dpto_dialog.setText(currentTravel.getDepartment());
+
+
+        if(currentTravel.getIsExitSleepIntravel() == 1){
+            txt_issleep_dialog.setText("Si");
+        }else {
+            txt_issleep_dialog.setText("No");
+        }
+
+        if(currentTravel.getIsTravelFromReturn() == 1){
+            txt_isretunr_dialog.setText("Si");
+        }else {
+            txt_isretunr_dialog.setText("No");
+        }
 
 
         txt_observation.setText(currentTravel.getObservationFromDriver());
@@ -166,7 +183,7 @@ public class TravelDialog extends DialogFragment {
             }
         });
 
-      //****************//
+        //****************//
 
            /*
         MULTI DESTINO
@@ -203,10 +220,10 @@ public class TravelDialog extends DialogFragment {
         expandableListView3 = (ExpandableListView) rootView.findViewById(R.id.expandableListView3);
 
         List<String> subItem3 = new ArrayList<String>();
-        if(currentTravel.getOriginMultipleDesc1() != ""){subItem3.add(currentTravel.getOriginMultipleDesc1());}
-        if(currentTravel.getOriginMultipleDesc2() != ""){subItem3.add(currentTravel.getOriginMultipleDesc2());}
-        if(currentTravel.getOriginMultipleDesc3() != ""){subItem3.add(currentTravel.getOriginMultipleDesc3());}
-        if(currentTravel.getOriginMultipleDesc4() != ""){subItem3.add(currentTravel.getOriginMultipleDesc4());}
+        if(!currentTravel.getOriginMultipleDesc1().equals("")){subItem3.add(currentTravel.getOriginMultipleDesc1());}
+        if(!currentTravel.getOriginMultipleDesc2().equals("")){subItem3.add(currentTravel.getOriginMultipleDesc2());}
+        if(!currentTravel.getOriginMultipleDesc3().equals("")){subItem3.add(currentTravel.getOriginMultipleDesc3());}
+        if(!currentTravel.getOriginMultipleDesc4().equals("")){subItem3.add(currentTravel.getOriginMultipleDesc4());}
 
 
         expandableListDetail3 = ExpandableListDataPump.getData("Multi Origen",subItem3);

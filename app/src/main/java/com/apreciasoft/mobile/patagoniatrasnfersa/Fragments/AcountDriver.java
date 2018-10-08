@@ -1,4 +1,4 @@
-package com.apreciasoft.mobile.patagoniatrasnfersa.Fracments;
+package com.apreciasoft.mobile.patagoniatrasnfersa.Fragments;
 
 import android.app.Fragment;
 import android.content.DialogInterface;
@@ -24,7 +24,6 @@ import com.apreciasoft.mobile.patagoniatrasnfersa.Util.GlovalVar;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

@@ -1,7 +1,10 @@
 package com.apreciasoft.mobile.patagoniatrasnfersa.Entity;
 
+import android.support.annotation.Nullable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -10,8 +13,6 @@ import java.util.List;
  */
 
 public  class InfoTravelEntity implements Serializable {
-
-
 
     @Expose
     @SerializedName("idTravel")
@@ -26,6 +27,15 @@ public  class InfoTravelEntity implements Serializable {
     @SerializedName("isBenefitKmClientList")
     public int isBenefitKmClientList;
 
+
+    @Expose
+    @SerializedName("isTravelFromReturn")
+    public int isTravelFromReturn;
+
+
+    @Expose
+    @SerializedName("isExitSleepIntravel")
+    public int isExitSleepIntravel;
 
 
 
@@ -350,6 +360,7 @@ public  class InfoTravelEntity implements Serializable {
     @SerializedName("idBenefitKmClientKf")
     public int idBenefitKmClientKf;
 
+    @Nullable
     @Expose
     @SerializedName("listBeneficio")
     public List<BeneficioEntity> listBeneficio;
@@ -362,10 +373,6 @@ public  class InfoTravelEntity implements Serializable {
     @Expose
     @SerializedName("isConfirTravelAppFromWeb")
     public int isConfirTravelAppFromWeb;
-
-
-
-
 
     @Expose
     @SerializedName("distanceSave")
@@ -1168,4 +1175,19 @@ public  class InfoTravelEntity implements Serializable {
     }
 
 
+    public int getIsTravelFromReturn() {
+        return isTravelFromReturn;
+    }
+
+    public void setIsTravelFromReturn(int isTravelFromReturn) {
+        this.isTravelFromReturn = isTravelFromReturn;
+    }
+
+    public int getIsExitSleepIntravel() {
+        return isExitSleepIntravel;
+    }
+
+    public void setIsExitSleepIntravel(int isExitSleepIntravel) {
+        this.isExitSleepIntravel = isExitSleepIntravel;
+    }
 }

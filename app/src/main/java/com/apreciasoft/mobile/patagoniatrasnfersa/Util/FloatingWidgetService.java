@@ -1,6 +1,5 @@
 package com.apreciasoft.mobile.patagoniatrasnfersa.Util;
 
-
 import android.app.Service;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -415,7 +414,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
     /*  Get Bounce value if you want to make bounce effect to your Floating Widget */
     private double bounceValue(long step, long scale) {
-        double value = scale * java.lang.Math.exp(-0.055 * step) * java.lang.Math.cos(0.08 * step);
+        double value = scale * Math.exp(-0.055 * step) * Math.cos(0.08 * step);
         return value;
     }
 

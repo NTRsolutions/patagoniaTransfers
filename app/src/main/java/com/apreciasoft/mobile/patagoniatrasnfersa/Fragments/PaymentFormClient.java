@@ -1,4 +1,4 @@
-package com.apreciasoft.mobile.patagoniatrasnfersa.Fracments;
+package com.apreciasoft.mobile.patagoniatrasnfersa.Fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.apreciasoft.mobile.patagoniatrasnfersa.R;
+
 
 /**
  * Created by usario on 19/7/2017.

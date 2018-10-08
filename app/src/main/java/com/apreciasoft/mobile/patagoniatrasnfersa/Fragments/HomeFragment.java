@@ -1,4 +1,4 @@
-package com.apreciasoft.mobile.patagoniatrasnfersa.Fracments;
+package com.apreciasoft.mobile.patagoniatrasnfersa.Fragments;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -103,47 +103,47 @@ public class HomeFragment extends Fragment implements
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
 
-
-
-
-        /* SOCKET MAPA */
-        public static Socket SPCKETMAP;
-        public static String URL_SOCKET_MAP =  HttpConexion.PROTOCOL+"://"+HttpConexion.ip+":"+HttpConexion.portWsWeb+"";
+    /* SOCKET MAPA */
+    public static Socket SPCKETMAP;
+    public static String URL_SOCKET_MAP =  HttpConexion.PROTOCOL+"://"+HttpConexion.ip+":"+HttpConexion.portWsWeb+"";
     public static SqliteUtil AsRemisSqlite;
 
-        /*++++++++++++*/
+    /*++++++++++++*/
 
-        private static View view;
-        public ServicesLoguin daoLoguin = null;
-        public String TAG = "HomeFragment";
-        public static List<LatLng> listPosition = new ArrayList<>();
-        static GoogleMap mGoogleMap;
-        LocationRequest mLocationRequest;
-        static GoogleApiClient mGoogleApiClient;
-        public static  Location mLastLocation;
-        public static  String nameLocation;
-        public static   PolylineOptions options;
-        public static   PolylineOptions optionReturnActive;
-        Marker mCurrLocationMarker;
-        //public boolean isFistLocation = true;
-        public boolean isReadyDrawingRouting = false;
-        public static ArrayList<LatLng> MarkerPoints;
-        public static GlovalVar gloval;
-        public static TextView txt_client_info = null;
-        public static TextView txt_observationFlight = null;
-        public static TextView txt_date_info = null;
-        public static TextView txt_destination_info = null;
-        public static TextView txt_origin_info = null;
-        public static TextView txt_km_info = null;
-        public static TextView txt_calling_info = null;
-        public static TextView txt_observationFromDriver = null;
-        public static TextView txt_amount_info = null;
-        public static TextView txt_pasajeros_info,infoGneral = null;
-        public static TextView txt_lote = null;
-        public static TextView txt_flete = null;
-        public static TextView txt_piso_dialog = null;
-        public static TextView txt_dpto_dialog = null;
-        public static TextView txt_distance_real = null;
+    private static View view;
+    public ServicesLoguin daoLoguin = null;
+    public String TAG = "HomeFragment";
+    public static List<LatLng> listPosition = new ArrayList<>();
+    static GoogleMap mGoogleMap;
+    LocationRequest mLocationRequest;
+    static GoogleApiClient mGoogleApiClient;
+    public static  Location mLastLocation;
+    public static  String nameLocation;
+    public static PolylineOptions options;
+    public static PolylineOptions optionReturnActive;
+    Marker mCurrLocationMarker;
+    //public boolean isFistLocation = true;
+    public boolean isReadyDrawingRouting = false;
+    public static ArrayList<LatLng> MarkerPoints;
+    public static GlovalVar gloval;
+    public static TextView txt_client_info = null;
+    public static TextView txt_observationFlight = null;
+    public static TextView txt_date_info = null;
+    public static TextView txt_destination_info = null;
+    public static TextView txt_origin_info = null;
+    public static TextView txt_km_info = null;
+    public static TextView txt_calling_info = null;
+    public static TextView txt_observationFromDriver = null;
+    public static TextView txt_amount_info = null;
+    public static TextView txt_pasajeros_info,infoGneral = null;
+    public static TextView txt_lote = null;
+    public static TextView txt_flete = null;
+    public static TextView txt_piso_dialog = null;
+    public static TextView txt_issleep_dialog = null;
+    public static TextView txt_isretunr_dialog = null;
+
+    public static TextView txt_dpto_dialog = null;
+    public static TextView txt_distance_real = null;
     public static  SharedPreferences.Editor editor;
     public static  SharedPreferences pref;
     public  BitmapDrawable bitmapdraw;
@@ -154,17 +154,17 @@ public class HomeFragment extends Fragment implements
     //****//
 
 
-        public MapFragment  mMap;
-        public static int PARAM_26  = 0;
+    public MapFragment mMap;
+    public static int PARAM_26  = 0;
 
 
     public static Location getmLastLocation() {
         return mLastLocation;
     }
 
-        public static void setmLastLocation(Location mLastLocation) {
-            HomeFragment.mLastLocation = mLastLocation;
-        }
+    public static void setmLastLocation(Location mLastLocation) {
+        HomeFragment.mLastLocation = mLastLocation;
+    }
 
     @Nullable
     @Override
@@ -182,7 +182,7 @@ public class HomeFragment extends Fragment implements
         try {
             view = inflater.inflate(R.layout.fragment_home,container,false);
         } catch (InflateException e) {
-        /* map is already there, just return view as it is */
+            /* map is already there, just return view as it is */
         }
 
 
@@ -218,7 +218,7 @@ public class HomeFragment extends Fragment implements
         else
         {
             fr.getMapAsync(this);
-          //  Log.d("YA","5");
+            //  Log.d("YA","5");
         }
 
 
@@ -234,6 +234,11 @@ public class HomeFragment extends Fragment implements
 
         HomeFragment.txt_piso_dialog =  getActivity().findViewById(R.id.txt_piso_dialog);
         HomeFragment.txt_dpto_dialog =  getActivity().findViewById(R.id.txt_dpto_dialog);
+
+        HomeFragment.txt_issleep_dialog =  getActivity().findViewById(R.id.txt_issleep_dialog);
+        HomeFragment.txt_isretunr_dialog =  getActivity().findViewById(R.id.txt_isretunr_dialog);
+
+
 
         HomeFragment.txt_km_info =  getActivity().findViewById(R.id.txt_km_info);
         HomeFragment.txt_amount_info =  getActivity().findViewById(R.id.txt_amount_info);
@@ -273,7 +278,7 @@ public class HomeFragment extends Fragment implements
             //stop location updates when Activity is no longer active
             if (mGoogleApiClient != null) {
                 Log.d("YA","6");
-               // HomeFragment.SPCKETMAP.disconnect();
+                // HomeFragment.SPCKETMAP.disconnect();
                 LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
 
             }
@@ -331,7 +336,7 @@ public class HomeFragment extends Fragment implements
 
 
         //Initialize Google Play Services
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
             Log.d(TAG,"T-1");
 
@@ -482,7 +487,7 @@ public class HomeFragment extends Fragment implements
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
                 LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
-              //  conexionSocketMap();
+                //  conexionSocketMap();
             }
 
         }catch (Exception E)
@@ -507,8 +512,8 @@ public class HomeFragment extends Fragment implements
 
 
         try{
-        /* Instance object socket */
-           // SPCKETMAP = IO.socket(URL_SOCKET_MAP);
+            /* Instance object socket */
+            // SPCKETMAP = IO.socket(URL_SOCKET_MAP);
 
             Log.d("SOCK MAP","conexionSocketMap");
 
@@ -520,7 +525,7 @@ public class HomeFragment extends Fragment implements
                         SSLContext sc = SSLContext.getInstance("TLS");
                         sc.init(null, trustAllCerts, new SecureRandom());
                         IO.setDefaultSSLContext(sc);
-                       //  HttpsURLConnection.setDefaultHostnameVerifier(new RelaxedHostNameVerifier());
+                        //  HttpsURLConnection.setDefaultHostnameVerifier(new RelaxedHostNameVerifier());
 
 
                         IO.Options options = new IO.Options();
@@ -529,7 +534,7 @@ public class HomeFragment extends Fragment implements
                         options.port = HttpConexion.portWsWeb;
 
 
-                            SPCKETMAP = IO.socket(URL_SOCKET_MAP, options);
+                        SPCKETMAP = IO.socket(URL_SOCKET_MAP, options);
 
                     } else {
                         SPCKETMAP = IO.socket(URL_SOCKET_MAP);
@@ -537,39 +542,39 @@ public class HomeFragment extends Fragment implements
                     }
 
 
-                    Log.d("SOCK MAP","va a conectar: "+URL_SOCKET_MAP);
+                Log.d("SOCK MAP","va a conectar: "+URL_SOCKET_MAP);
 
             }
 
 
-                    SPCKETMAP.on(Socket.EVENT_CONNECT, new Emitter.Listener(){
-                        @Override
-                        public void call(Object... args) {
-                        /* Our code */
-                            Log.d("SOCK MAP","CONECT");
+            SPCKETMAP.on(Socket.EVENT_CONNECT, new Emitter.Listener(){
+                @Override
+                public void call(Object... args) {
+                    /* Our code */
+                    Log.d("SOCK MAP","CONECT");
                   //  _COUNT_CHANGUE = 1;
 
-                            sendSocketId();
+                    sendSocketId();
                    // CONEXION_MAP_ERROR = false;
 
 
-                        }
-                    }).on(Socket.EVENT_DISCONNECT, new Emitter.Listener(){
-                        @Override
-                        public void call(Object... args) {
-                        /* Our code */
-                            Log.d("SOCK MAP","DISCONESCT");
+                }
+            }).on(Socket.EVENT_DISCONNECT, new Emitter.Listener(){
+                @Override
+                public void call(Object... args) {
+                    /* Our code */
+                    Log.d("SOCK MAP","DISCONESCT");
                   //  _COUNT_CHANGUE = 0;
                   //  CONEXION_MAP_ERROR = true;
                    // SPCKETMAP.disconnect();
                    // SPCKETMAP = null;
 
-                        }
-                    })
+                }
+            })
                     .on(Socket.EVENT_RECONNECT_ERROR, new Emitter.Listener(){
                         @Override
                         public void call(Object... args) {
-                        /* Our code */
+                            /* Our code */
                             Log.d("SOCK MAP","EVENT_RECONNECT_ERROR");
                            // _COUNT_CHANGUE = 0;
                             //CONEXION_MAP_ERROR = true;
@@ -582,48 +587,48 @@ public class HomeFragment extends Fragment implements
 
 
 
-                JSONObject obj = new JSONObject();
+            JSONObject obj = new JSONObject();
 
-                double[] latLong = new double[2];
-                latLong[0] = la;
-                latLong[1] = lo;
+            double[] latLong = new double[2];
+            latLong[0] = la;
+            latLong[1] = lo;
 
-                JSONArray jsonAraay = null;
+            JSONArray jsonAraay = null;
 
-                try {
-                    jsonAraay = new JSONArray(latLong);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-                Log.d("SOCK MAP", String.valueOf(jsonAraay));
-
-                try {
-                    obj.put("isDriver", "true");
-                    obj.put("latLong", jsonAraay);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+            try {
+                jsonAraay = new JSONArray(latLong);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
 
+            Log.d("SOCK MAP", String.valueOf(jsonAraay));
 
-
-                //SPCKETMAP.emit(HomeFragment.MY_EVENT_MAP, obj, new Ack() {
+            try {
+                obj.put("isDriver", "true");
+                obj.put("latLong", jsonAraay);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
 
 
-                   // @Override
-                   // public void call(Object... args) {
-             /* Our code */
 
-                    //    Log.d("SOCK MAP","EMITIO EVENTO");
-                 //   }
-               // });
+            //SPCKETMAP.emit(HomeFragment.MY_EVENT_MAP, obj, new Ack() {
+
+
+
+            // @Override
+            // public void call(Object... args) {
+            /* Our code */
+
+            //    Log.d("SOCK MAP","EMITIO EVENTO");
+            //   }
+            // });
 
             if(SPCKETMAP != null){
                 if(!SPCKETMAP.connected()) {
-                SPCKETMAP.connect();
+                    SPCKETMAP.connect();
                 }
             }
 
@@ -644,8 +649,8 @@ public class HomeFragment extends Fragment implements
 
 
     private TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
-        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-            return new java.security.cert.X509Certificate[] {};
+        public X509Certificate[] getAcceptedIssuers() {
+            return new X509Certificate[] {};
         }
 
         public void checkClientTrusted(X509Certificate[] chain,
@@ -672,10 +677,10 @@ public class HomeFragment extends Fragment implements
 
             if (SPCKETMAP.id() != null) {
 
-            this.daoLoguin = HttpConexion.getUri().create(ServicesLoguin.class);
+                this.daoLoguin = HttpConexion.getUri().create(ServicesLoguin.class);
 
 
-        try {
+                try {
 
                     //Log.d("SOCK MAP","ENVIADO "+SPCKETMAP.id().toString());
 
@@ -683,39 +688,39 @@ public class HomeFragment extends Fragment implements
                     if (SPCKETMAP.id() != null) {
 
 
-                token T = new token();
+                        token T = new token();
                         T.setToken(new tokenFull(pref.getInt("user_id", 0), SPCKETMAP.id().toString()));
 
-                GsonBuilder builder = new GsonBuilder();
-                Gson gson = builder.create();
-                Log.d("Response JSON", gson.toJson(T));
+                        GsonBuilder builder = new GsonBuilder();
+                        Gson gson = builder.create();
+                        Log.d("Response JSON", gson.toJson(T));
 
-                Call<Boolean> call = this.daoLoguin.updateSocketWeb(T);
+                        Call<Boolean> call = this.daoLoguin.updateSocketWeb(T);
 
-                call.enqueue(new Callback<Boolean>() {
-                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                    @Override
-                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                        Log.d("Response request", call.request().toString());
-                        Log.d("Response request header", call.request().headers().toString());
-                        Log.d("Response raw header", response.headers().toString());
-                        Log.d("Response raw", String.valueOf(response.raw().body()));
-                        Log.d("Response code", String.valueOf(response.code()));
+                        call.enqueue(new Callback<Boolean>() {
+                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                            @Override
+                            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                                Log.d("Response request", call.request().toString());
+                                Log.d("Response request header", call.request().headers().toString());
+                                Log.d("Response raw header", response.headers().toString());
+                                Log.d("Response raw", String.valueOf(response.raw().body()));
+                                Log.d("Response code", String.valueOf(response.code()));
 
+                            }
+
+                            public void onFailure(Call<Boolean> call, Throwable t) {
+
+
+                                Log.d("ERROR", t.getMessage());
+                            }
+                        });
                     }
 
-                    public void onFailure(Call<Boolean> call, Throwable t) {
-
-
-                        Log.d("ERROR", t.getMessage());
-                    }
-                });
+                } finally {
+                    this.daoLoguin = null;
+                }
             }
-
-        } finally {
-            this.daoLoguin = null;
-        }
-    }
         }
     }
 
@@ -741,12 +746,12 @@ public class HomeFragment extends Fragment implements
 
 
 
-                 /*
-                * SOCKET MAPA
-                * NODE JS
-                * */
+                /*
+                 * SOCKET MAPA
+                 * NODE JS
+                 * */
                 if(this.getActivity().getApplicationContext() != null) {
-                    if (Utils.verificaConexion(this.getActivity().getApplicationContext()) == true) {
+                    if (Utils.verificaConexion(this.getActivity().getApplicationContext())) {
                         if(SPCKETMAP == null){
                             if(addresses.size() > 0) {
                                 conexionSocketMap(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
@@ -784,30 +789,30 @@ public class HomeFragment extends Fragment implements
                     Log.d("SOCK MAP", String.valueOf(jsonAraay));
 
                     */
-                    JSONObject obj = new JSONObject();
-                    obj.put("location", location_);
-                    obj.put("fullNameDriver", gloval.getGv_user_name());
-                    obj.put("nrDriver",  gloval.getGv_nr_driver());
+                        JSONObject obj = new JSONObject();
+                        obj.put("location", location_);
+                        obj.put("fullNameDriver", gloval.getGv_user_name());
+                        obj.put("nrDriver",  gloval.getGv_nr_driver());
 
                         Gson gson = new Gson();
                         String json = gson.toJson(HomeActivity.currentTravel);
 
-                    if(HomeActivity.currentTravel != null) {
-                        obj.put("currentTravel",json );
-                    }
+                        if(HomeActivity.currentTravel != null) {
+                            obj.put("currentTravel",json );
+                        }
 
 
                         if(SPCKETMAP != null) {
-                        SPCKETMAP.emit("newlocation", obj, new Ack() {
+                            SPCKETMAP.emit("newlocation", obj, new Ack() {
 
 
-                        @Override
-                        public void call(Object... args) {
-                     /* Our code */
+                                @Override
+                                public void call(Object... args) {
+                                    /* Our code */
 
-                            Log.d("SOCK MAP", "newlocation ACTIVE");
-                        }
-                    });
+                                    Log.d("SOCK MAP", "newlocation ACTIVE");
+                                }
+                            });
                         }
 
                     } catch (JSONException e) {
@@ -819,148 +824,148 @@ public class HomeFragment extends Fragment implements
                 }
 
 
-                 /*-----------*/
+                /*-----------*/
 
 
                 if(addresses.size() > 0) {
 
 
 
-                   android.location.Address returnedAddress = addresses.get(0);
+                    android.location.Address returnedAddress = addresses.get(0);
                    // StringBuilder strReturnedAddress = new StringBuilder("");
 
                     //for (int i = 0; i < returnedAddress.getMaxAddressLineIndex(); i++) {
                       //  strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
                     //}
-                   String strAdd = returnedAddress.getAddressLine(0);
-                   HomeFragment.nameLocation = strAdd.toString();
+                    String strAdd = returnedAddress.getAddressLine(0);
+                    HomeFragment.nameLocation = strAdd.toString();
 
 
-                   mLastLocation = location;
-                   if (mCurrLocationMarker != null) {
-                       mCurrLocationMarker.remove();
-                   }
+                    mLastLocation = location;
+                    if (mCurrLocationMarker != null) {
+                        mCurrLocationMarker.remove();
+                    }
 
 
                     if (HomeActivity.currentTravel != null && HomeActivity.currentTravel.getLatOrigin() != null && HomeActivity.currentTravel.getLonOrigin() != null) {
-                       if (!isReadyDrawingRouting) {
-                           // Initializing
-                           MarkerPoints = new ArrayList<>();
+                        if (!isReadyDrawingRouting) {
+                            // Initializing
+                            MarkerPoints = new ArrayList<>();
 
-                           LatLng origuin = new LatLng(Double.parseDouble(HomeActivity.currentTravel.getLatOrigin()), Double.parseDouble(HomeActivity.currentTravel.getLonOrigin()));
-                           setDirection(origuin);
-
-
-                           if (HomeActivity.currentTravel.getLatDestination() != null) {
-                               if (HomeActivity.currentTravel.getLonDestination() != null) {
-
-                                   if (HomeActivity.currentTravel.getLatDestination() != "") {
-                                       if (HomeActivity.currentTravel.getLonDestination() != "") {
-                                           LatLng desination = new LatLng(Double.parseDouble(HomeActivity.currentTravel.getLatDestination()), Double.parseDouble(HomeActivity.currentTravel.getLonDestination()));
-                                           setDirection(desination);
-                                           isReadyDrawingRouting = true;
-                                       }
-                                   }
-                               }
-                           }
-                       }
+                            LatLng origuin = new LatLng(Double.parseDouble(HomeActivity.currentTravel.getLatOrigin()), Double.parseDouble(HomeActivity.currentTravel.getLonOrigin()));
+                            setDirection(origuin);
 
 
-                   } else {
+                            if (HomeActivity.currentTravel.getLatDestination() != null) {
+                                if (HomeActivity.currentTravel.getLonDestination() != null) {
 
-                       if (MarkerPoints != null) {
-                           MarkerPoints.clear();
-                       }
-
-                       if (mGoogleMap != null) {
-                           mGoogleMap.clear();
-                       }
-
-                       isReadyDrawingRouting = false;
-                   }
-
-                   //Place current location marker
-                   LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                   MarkerOptions markerOptions = new MarkerOptions();
-                   markerOptions.position(latLng);
+                                    if (!HomeActivity.currentTravel.getLatDestination().equals("")) {
+                                        if (!HomeActivity.currentTravel.getLonDestination().equals("")) {
+                                            LatLng desination = new LatLng(Double.parseDouble(HomeActivity.currentTravel.getLatDestination()), Double.parseDouble(HomeActivity.currentTravel.getLonDestination()));
+                                            setDirection(desination);
+                                            isReadyDrawingRouting = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
 
 
-                   int height = 45;
-                   int width = 40;
-                   Bitmap b = bitmapdraw.getBitmap();
-                   Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+                    } else {
 
-                   markerOptions.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
+                        if (MarkerPoints != null) {
+                            MarkerPoints.clear();
+                        }
+
+                        if (mGoogleMap != null) {
+                            mGoogleMap.clear();
+                        }
+
+                        isReadyDrawingRouting = false;
+                    }
+
+                    //Place current location marker
+                    LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    markerOptions.position(latLng);
+
+
+                    int height = 45;
+                    int width = 40;
+                    Bitmap b = bitmapdraw.getBitmap();
+                    Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+
+                    markerOptions.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
 
 
                     if (mCurrLocationMarker != null) {
                         mCurrLocationMarker.remove();
                     }
-                   mCurrLocationMarker = mGoogleMap.addMarker(markerOptions);
+                    mCurrLocationMarker = mGoogleMap.addMarker(markerOptions);
 
 
-                   if (HomeActivity.currentTravel != null) {
-                       if (HomeActivity.currentTravel.getIdSatatusTravel() == 4 ||
-                               HomeActivity.currentTravel.getIdSatatusTravel() == 5
-                               ) {
-                           mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                           mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(18));
-                       }
-                   } else {
-                       mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                       mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(18));
-                   }
+                    if (HomeActivity.currentTravel != null) {
+                        if (HomeActivity.currentTravel.getIdSatatusTravel() == 4 ||
+                                HomeActivity.currentTravel.getIdSatatusTravel() == 5
+                                ) {
+                            mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+                            mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(18));
+                        }
+                    } else {
+                        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+                        mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(18));
+                    }
 
 
 
 
 
-                   // SI POSEE UN VIAJE DIBUAMOS LA RUTA QUE ESTA RECORRINEDO EL CHOFER //
-                   if (HomeActivity.currentTravel != null) {
-                       if(HomeActivity.currentTravel.getIdSatatusTravel() == 5) {
+                    // SI POSEE UN VIAJE DIBUAMOS LA RUTA QUE ESTA RECORRINEDO EL CHOFER //
+                    if (HomeActivity.currentTravel != null) {
+                        if(HomeActivity.currentTravel.getIdSatatusTravel() == 5) {
 
 
-                       mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                       mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(20));
+                            mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+                            mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(20));
 
-                           HomeFragment.listPosition.add(new LatLng(latLng.latitude, latLng.longitude));
-                           HomeFragment.options = new
-                               PolylineOptions()
-                               .width(5)
-                                   .color(Color.TRANSPARENT)
-                               .geodesic(true);
+                            HomeFragment.listPosition.add(new LatLng(latLng.latitude, latLng.longitude));
+                            HomeFragment.options = new
+                                    PolylineOptions()
+                                    .width(5)
+                                    .color(Color.TRANSPARENT)
+                                    .geodesic(true);
 
                             //Log.d("totalDistance listPosition", String.valueOf(HomeFragment.listPosition.size()));
 
 
-                           for (int z = 0; z < HomeFragment.listPosition.size(); z++) {
-                               LatLng point = HomeFragment.listPosition.get(z);
+                            for (int z = 0; z < HomeFragment.listPosition.size(); z++) {
+                                LatLng point = HomeFragment.listPosition.get(z);
 
                                     if (HomeActivity.currentTravel.isRoundTrip == 1 && optionReturnActive == null)//VERIFICAMOS SI ESTA ACTIVA LA VUETA PARA SABER DESDE QUE UBUCACION SE REALIZO
-                           {
-                               optionReturnActive = new
-                                       PolylineOptions()
-                                       .width(5)
-                                           .color(Color.TRANSPARENT)
-                                       .geodesic(true);
-                               optionReturnActive.add(point);
+                                    {
+                                        optionReturnActive = new
+                                                PolylineOptions()
+                                                .width(5)
+                                                .color(Color.TRANSPARENT)
+                                                .geodesic(true);
+                                        optionReturnActive.add(point);
 
 
-                               }else {
-                                   HomeFragment.options.add(point);
-                           }
-
-
-
-                               }
-                           }else {
-                                    if(HomeFragment.options != null){
-                                        HomeFragment.options.getPoints().clear();
+                                    }else {
+                                        HomeFragment.options.add(point);
                                     }
-                                HomeFragment.options = null;
-                                HomeFragment.listPosition.clear();
-                                HomeFragment.listPosition = new ArrayList<>();
-                       }
+
+
+
+                            }
+                        }else {
+                            if(HomeFragment.options != null){
+                                HomeFragment.options.getPoints().clear();
+                            }
+                            HomeFragment.options = null;
+                            HomeFragment.listPosition.clear();
+                            HomeFragment.listPosition = new ArrayList<>();
+                        }
 
 
                         float[] _RECORD =  HomeFragment.calculateMiles(true);
@@ -978,28 +983,28 @@ public class HomeFragment extends Fragment implements
 
 
 
-                       //Polyline line = mGoogleMap.addPolyline(options);
-                       //line.setColor(Color.parseColor("#579ea8"));
-                       //content_ditanceReal.setVisibility(View.VISIBLE);
+                        //Polyline line = mGoogleMap.addPolyline(options);
+                        //line.setColor(Color.parseColor("#579ea8"));
+                        //content_ditanceReal.setVisibility(View.VISIBLE);
 
-                   }else
-                   {
-                       if(HomeFragment.options != null){
-                           HomeFragment.options.getPoints().clear();
-                       }
-                       HomeFragment.options = null;
-                       HomeFragment.listPosition.clear();
-                       HomeFragment.listPosition = new ArrayList<>();
+                    }else
+                    {
+                        if(HomeFragment.options != null){
+                            HomeFragment.options.getPoints().clear();
+                        }
+                        HomeFragment.options = null;
+                        HomeFragment.listPosition.clear();
+                        HomeFragment.listPosition = new ArrayList<>();
 
-                       Log.d("CODUCE NO", String.valueOf(HomeFragment.listPosition.size()));
-                       //content_ditanceReal.setVisibility(View.INVISIBLE);
-                       HomeFragment.txt_distance_real.setText(0.0+"Km");
-
-
-                   }
+                        Log.d("CODUCE NO", String.valueOf(HomeFragment.listPosition.size()));
+                        //content_ditanceReal.setVisibility(View.INVISIBLE);
+                        HomeFragment.txt_distance_real.setText(0.0+"Km");
 
 
-               }
+                    }
+
+
+                }
 
 
             } catch (IOException e) {
@@ -1016,34 +1021,34 @@ public class HomeFragment extends Fragment implements
     public boolean checkLocationPermission(){
 
 
-                if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
-                        Manifest.permission.ACCESS_FINE_LOCATION)
-                        != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
 
-                    // Asking user if explanation is needed
-                    if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) getActivity().getApplicationContext(),
-                            Manifest.permission.ACCESS_FINE_LOCATION)) {
+            // Asking user if explanation is needed
+            if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) getActivity().getApplicationContext(),
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
 
-                        // Show an expanation to the user *asynchronously* -- don't block
-                        // this thread waiting for the user's response! After the user
-                        // sees the explanation, try again to request the permission.
+                // Show an expanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
 
-                        //Prompt the user once explanation has been shown
-                        ActivityCompat.requestPermissions((Activity) getActivity().getApplicationContext(),
-                                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                                MY_PERMISSIONS_REQUEST_LOCATION);
+                //Prompt the user once explanation has been shown
+                ActivityCompat.requestPermissions((Activity) getActivity().getApplicationContext(),
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_LOCATION);
 
 
-                    } else {
-                        // No explanation needed, we can request the permission.
-                        ActivityCompat.requestPermissions((Activity) getActivity().getApplicationContext(),
-                                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                                MY_PERMISSIONS_REQUEST_LOCATION);
-                    }
-                    return false;
-                } else {
-                    return true;
-                }
+            } else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions((Activity) getActivity().getApplicationContext(),
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_LOCATION);
+            }
+            return false;
+        } else {
+            return true;
+        }
 
 
     }
@@ -1111,19 +1116,19 @@ public class HomeFragment extends Fragment implements
 
                         if (HomeActivity.currentTravel.isRoundTrip == 1) {
                             if (optionReturnActive.getPoints().get(0) != null) {
-                        if (optionReturnActive.getPoints().get(0).latitude == HomeFragment.options.getPoints().get(i).latitude) {
-                            if (optionReturnActive.getPoints().get(0).longitude == HomeFragment.options.getPoints().get(i).longitude) {
-                                Log.d("totalDistance 2", "retorno");
+                                if (optionReturnActive.getPoints().get(0).latitude == HomeFragment.options.getPoints().get(i).latitude) {
+                                    if (optionReturnActive.getPoints().get(0).longitude == HomeFragment.options.getPoints().get(i).longitude) {
+                                        Log.d("totalDistance 2", "retorno");
 
-                                totalDistanceVuelta += lastLocation.distanceTo(currLocation);
+                                        totalDistanceVuelta += lastLocation.distanceTo(currLocation);
+                                    }
+
                             }
-
                         }
-                     }
-                }
+                    }
                 }
 
-        }
+            }
 
         }
 
@@ -1209,6 +1214,20 @@ public class HomeFragment extends Fragment implements
         HomeFragment.txt_dpto_dialog.setText(currentTravel.getDepartment());
         HomeFragment.txt_piso_dialog.setText(currentTravel.getFLOOR());
 
+        if(currentTravel.getIsExitSleepIntravel() == 1){
+            HomeFragment.txt_issleep_dialog.setText("Si");
+        }else {
+            HomeFragment.txt_issleep_dialog.setText("No");
+        }
+
+        if(currentTravel.getIsTravelFromReturn() == 1){
+            HomeFragment.txt_isretunr_dialog.setText("Si");
+        }else {
+            HomeFragment.txt_isretunr_dialog.setText("No");
+        }
+
+
+
         HomeFragment.txt_km_info.setText(currentTravel.getDistanceLabel());
 
         if(currentTravel.isFleetTravelAssistance > 0) {
@@ -1272,7 +1291,7 @@ public class HomeFragment extends Fragment implements
 
         infoGneral.setText("SERVICIO ACTIVO");
 
-    }
+        }
 
 
     // Fetches data from url passed
@@ -1352,8 +1371,8 @@ public class HomeFragment extends Fragment implements
     private static class ParserTask extends AsyncTask<String, Integer, List<List<HashMap<String, String>>>> {
 
        //
-        // Parsing the data in non-ui thread
-        @Override
+            // Parsing the data in non-ui thread
+            @Override
             protected List<List<HashMap<String, String>>> doInBackground (String...jsonData){
 
             JSONObject jObject;
@@ -1379,8 +1398,8 @@ public class HomeFragment extends Fragment implements
 
 
 
-        // Executes in UI thread, after the parsing process
-        @Override
+            // Executes in UI thread, after the parsing process
+            @Override
             protected void onPostExecute (List < List < HashMap < String, String >>> result){
 
            try{
@@ -1423,8 +1442,8 @@ public class HomeFragment extends Fragment implements
 
            }catch(Exception ex){
                ex.getMessage();
+           }
         }
-    }
 
     }
 
@@ -1587,15 +1606,15 @@ public class HomeFragment extends Fragment implements
 
                 if(COLUMN_DISTANCE != OLD_COLUMN_DISTANCE) {
                     if (OLD_COLUMN_DISTANCE > COLUMN_DISTANCE) {
-                    listPointSave.add(OLD_COLUMN_DISTANCE);
-                    _DISTANCE = _DISTANCE + OLD_COLUMN_DISTANCE;
-                }
+                        listPointSave.add(OLD_COLUMN_DISTANCE);
+                        _DISTANCE = _DISTANCE + OLD_COLUMN_DISTANCE;
+                    }
 
-                int j = cursor.getCount();
+                    int j = cursor.getCount();
                     if (c + 1 == j) {
-                    listPointSave.add(COLUMN_DISTANCE);
-                    _DISTANCE = _DISTANCE + COLUMN_DISTANCE;
-                }
+                        listPointSave.add(COLUMN_DISTANCE);
+                        _DISTANCE = _DISTANCE + COLUMN_DISTANCE;
+                    }
                 }
 
                 OLD_COLUMN_DISTANCE = COLUMN_DISTANCE;
@@ -1607,11 +1626,7 @@ public class HomeFragment extends Fragment implements
         if(listPointSave.size() == 0){
             _DISTANCE = COLUMN_DISTANCE;
         }
-
-
         sqlite.close();
-
-
         return _DISTANCE;
     }
 

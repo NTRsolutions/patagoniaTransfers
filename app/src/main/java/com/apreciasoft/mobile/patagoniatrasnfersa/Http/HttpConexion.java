@@ -1,6 +1,5 @@
 package com.apreciasoft.mobile.patagoniatrasnfersa.Http;
 
-
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -14,7 +13,7 @@ public class HttpConexion {
 
     public static String base;
     /*public static String ip = "192.168.0.5";*/public static String ip = "as-nube.com";
-    public  static String instance = "patagonia";
+    public  static String instance = "developer";
     public static int portWsWeb = 8086;
     public static int portWsCliente = 3000;
     public  static  String PROTOCOL = "https";

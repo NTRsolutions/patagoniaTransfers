@@ -1,9 +1,8 @@
-package com.apreciasoft.mobile.patagoniatrasnfersa.Fracments;
+package com.apreciasoft.mobile.patagoniatrasnfersa.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-
 import com.apreciasoft.mobile.patagoniatrasnfersa.R;
 
 /**

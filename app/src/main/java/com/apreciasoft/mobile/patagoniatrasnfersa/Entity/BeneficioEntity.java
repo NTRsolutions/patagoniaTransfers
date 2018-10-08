@@ -2,14 +2,14 @@ package com.apreciasoft.mobile.patagoniatrasnfersa.Entity;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
  * Created by Jorge on 28/10/17.
  */
 
-
-public  class BeneficioEntity implements Serializable {
+public class BeneficioEntity implements Serializable {
 
 
     @Expose

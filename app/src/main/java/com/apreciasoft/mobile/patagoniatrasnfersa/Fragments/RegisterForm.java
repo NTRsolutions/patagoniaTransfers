@@ -1,4 +1,4 @@
-package com.apreciasoft.mobile.patagoniatrasnfersa.Fracments;
+package com.apreciasoft.mobile.patagoniatrasnfersa.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-
 import com.apreciasoft.mobile.patagoniatrasnfersa.Http.HttpConexion;
 import com.apreciasoft.mobile.patagoniatrasnfersa.R;
 

@@ -1,4 +1,4 @@
-package com.apreciasoft.mobile.patagoniatrasnfersa.Fracments;
+package com.apreciasoft.mobile.patagoniatrasnfersa.Fragments;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
@@ -33,13 +33,11 @@ import com.apreciasoft.mobile.patagoniatrasnfersa.Util.GlovalVar;
 import com.apreciasoft.mobile.patagoniatrasnfersa.Util.RequestHandler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

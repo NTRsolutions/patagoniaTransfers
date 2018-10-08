@@ -45,13 +45,13 @@
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fracments.PaymentCreditCar" />
-        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fracments.activity_card" />
-        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fracments.RegisterCliente" />
-        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fracments.RegisterForm" />
-        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fracments.NewFormDriver" />
-        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fracments.NewFormClient" />
-        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fracments.InfoDetailTravelAc" />
+        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fragments.PaymentCreditCar" />
+        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fragments.activity_card" />
+        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fragments.RegisterCliente" />
+        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fragments.RegisterForm" />
+        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fragments.NewFormDriver" />
+        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fragments.NewFormClient" />
+        <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Fragments.InfoDetailTravelAc" />
         <activity android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Util.Signature" />
 
         <service android:name="com.apreciasoft.mobile.patagoniatrasnfersa.Util.FirebaseNotifactionSevices">

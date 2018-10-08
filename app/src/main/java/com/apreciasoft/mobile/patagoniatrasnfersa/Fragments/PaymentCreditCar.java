@@ -1,4 +1,4 @@
-package com.apreciasoft.mobile.patagoniatrasnfersa.Fracments;
+package com.apreciasoft.mobile.patagoniatrasnfersa.Fragments;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -74,7 +74,7 @@ public class PaymentCreditCar extends AppCompatActivity {
 
         mWebview .loadUrl(HomeActivity.mp_jsonPaymentCard);
         setContentView(mWebview );
-
+        
 
 
 
@@ -194,7 +194,7 @@ public class PaymentCreditCar extends AppCompatActivity {
                         .setNegativeButton("Intentar con otro metodo de Pago", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
-                HomeActivity._PAYCREDITCAR_OK = false;
+                                HomeActivity._PAYCREDITCAR_OK = false;
                                 finish();
                             }
                         });

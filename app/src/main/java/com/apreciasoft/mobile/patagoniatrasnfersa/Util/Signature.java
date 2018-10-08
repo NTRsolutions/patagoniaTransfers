@@ -203,7 +203,7 @@ public class Signature extends AppCompatActivity {
             }
             try
             {
-            Canvas canvas = new Canvas(mBitmap);
+                Canvas canvas = new Canvas(mBitmap);
                 v.draw(canvas);
 
 
@@ -218,7 +218,7 @@ public class Signature extends AppCompatActivity {
 
 
 /*
-                FileOutputStream mFileOutStream = new FileOutputStream(mypath);
+               FileOutputStream mFileOutStream = new FileOutputStream(mypath);
 
                 v.draw(canvas);
                 mBitmap.compress(Bitmap.CompressFormat.PNG, 100, mFileOutStream);
@@ -246,7 +246,7 @@ public class Signature extends AppCompatActivity {
                     fos.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-        }
+                }
             }
 
         }

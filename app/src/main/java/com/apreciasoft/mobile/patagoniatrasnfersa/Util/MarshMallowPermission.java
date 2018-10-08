@@ -1,4 +1,4 @@
-package com.apreciasoft.mobile.asremis.Util;
+package com.apreciasoft.mobile.patagoniatrasnfersa.Util;
 
 import android.Manifest;
 import android.app.Activity;

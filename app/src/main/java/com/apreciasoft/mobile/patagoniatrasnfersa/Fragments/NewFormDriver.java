@@ -1,4 +1,4 @@
-package com.apreciasoft.mobile.patagoniatrasnfersa.Fracments;
+package com.apreciasoft.mobile.patagoniatrasnfersa.Fragments;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import com.apreciasoft.mobile.patagoniatrasnfersa.Entity.dataAddPlusDriverEntity;
 import com.apreciasoft.mobile.patagoniatrasnfersa.Entity.driverAdd;
 import com.apreciasoft.mobile.patagoniatrasnfersa.Entity.fleet;

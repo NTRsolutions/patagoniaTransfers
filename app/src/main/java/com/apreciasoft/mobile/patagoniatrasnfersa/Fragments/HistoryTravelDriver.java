@@ -1,4 +1,4 @@
-package com.apreciasoft.mobile.patagoniatrasnfersa.Fracments;
+package com.apreciasoft.mobile.patagoniatrasnfersa.Fragments;
 
 import android.app.Fragment;
 import android.content.DialogInterface;
@@ -21,7 +21,6 @@ import com.apreciasoft.mobile.patagoniatrasnfersa.Services.ServicesDriver;
 import com.apreciasoft.mobile.patagoniatrasnfersa.Util.GlovalVar;
 
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -53,7 +52,7 @@ public class HistoryTravelDriver extends Fragment {
             if(gloval.getGv_id_profile() == 3){
                 serviceAllTravel();
             }else {
-            serviceAllTravelClient();
+                serviceAllTravelClient();
             }
 
 

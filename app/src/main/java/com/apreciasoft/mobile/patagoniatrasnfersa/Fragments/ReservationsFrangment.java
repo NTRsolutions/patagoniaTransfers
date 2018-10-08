@@ -1,4 +1,4 @@
-package com.apreciasoft.mobile.patagoniatrasnfersa.Fracments;
+package com.apreciasoft.mobile.patagoniatrasnfersa.Fragments;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.apreciasoft.mobile.patagoniatrasnfersa.Adapter.ReservationsAdapter;
 import com.apreciasoft.mobile.patagoniatrasnfersa.Entity.InfoTravelEntity;
 import com.apreciasoft.mobile.patagoniatrasnfersa.Http.HttpConexion;
@@ -22,7 +23,6 @@ import com.apreciasoft.mobile.patagoniatrasnfersa.Services.ServicesTravel;
 import com.apreciasoft.mobile.patagoniatrasnfersa.Util.GlovalVar;
 
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
