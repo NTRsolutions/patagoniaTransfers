@@ -27,7 +27,7 @@ import com.google.gson.GsonBuilder;
 public class FirebaseNotifactionSevices extends FirebaseMessagingService {
 
 
-    public static final String TAG = "NOTICIAS";
+    public static final String TAG = "NotificationSevices";
     public GlovalVar gloval;
     public Uri soundUri;
 
@@ -43,7 +43,6 @@ public class FirebaseNotifactionSevices extends FirebaseMessagingService {
 
             if (remoteMessage.getNotification() != null) {
                 Log.d(TAG, "Notificación: " + remoteMessage.getNotification().getBody());
-
             }
 
             if (remoteMessage.getData().size() > 0) {
@@ -102,13 +101,13 @@ public class FirebaseNotifactionSevices extends FirebaseMessagingService {
        // try {
             // Perform the operation associated with our pendingIntent
            // pendingIntent.send();
-            Log.d("NOTIFICATE", "Abrir");
+            Log.d(TAG, "Abrir");
         //} catch (PendingIntent.CanceledException e) {
           //  e.printStackTrace();
         //}
 
         String sound = gloval.getGv_travel_current_lite().getSound();
-        Log.d("NOTIFICATE", sound);
+        Log.d(TAG, "solido: "+sound);
 
         switch (sound) {
             case "nuevareserva":
@@ -131,13 +130,13 @@ public class FirebaseNotifactionSevices extends FirebaseMessagingService {
 
         }
 
-        Log.d("Notificación", String.valueOf(soundUri));
+        Log.d(TAG, String.valueOf(soundUri));
 
         if(gloval.getGv_travel_current_lite() != null)
         {
            if(gloval.getGv_travel_current_lite().getNameOrigin() != null) {
 
-                Log.d("Notificación", String.valueOf("FINAL"));
+                Log.d(TAG, String.valueOf("FINAL"));
 
                 // Patrón de vibración: 1 segundo vibra, 0.5 segundos para, 1 segundo vibra
                  long[] pattern = new long[]{1000,500,1000};
